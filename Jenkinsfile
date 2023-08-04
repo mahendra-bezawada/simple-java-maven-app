@@ -1,6 +1,6 @@
 pipeline {
   agent any
-  tools { maven '3.9.3' }
+  tools { jenkins-maven '3.9.3' }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh './mvn clean install'
+        sh 'mvn clean install'
       }
     }
     stage('Upload to Artifactory') {
