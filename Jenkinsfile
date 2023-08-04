@@ -1,8 +1,6 @@
 pipeline {
   agent any
-  tools {
-    jenkins-maven '3.9.3'
-  }
+  tools { maven '3.9.3' }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
