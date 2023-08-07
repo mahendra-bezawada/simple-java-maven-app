@@ -1,8 +1,6 @@
 pipeline {
   agent any
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
+
   environment {
     CI = true
     ARTIFACTORY_ACCESS_TOKEN = credentials('artifactory-access-token')
@@ -21,7 +19,7 @@ pipeline {
         }
       }
       steps {
-        sh 'jfrog rt upload --url http://54.153.114.205:8082/artifactory/ --access-token ${ARTIFACTORY_ACCESS_TOKEN} target/my-app-1.0-SNAPSHOT.jar java-web-app/'
+        sh 'jfrog rt upload --url http://54.215.233.239:8082/artifactory/ --access-token ${ARTIFACTORY_ACCESS_TOKEN} target/my-app-1.0-SNAPSHOT.jar java-web-app/'
       }
     }
   }
